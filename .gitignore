@@ -1,0 +1,9 @@
+flake.*
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.csv
+*.xlsx
+/data
+.venv/

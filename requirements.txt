@@ -1,0 +1,7 @@
+google-play-scraper
+numpy
+pandas
+python-dateutil
+pytz
+six
+tzdata
