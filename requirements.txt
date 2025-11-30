@@ -8,5 +8,6 @@ tzdata
 transformers
 torch
 scikit-learn
-tqdmmatplotlib
+tqdm
+matplotlib
 seaborn
