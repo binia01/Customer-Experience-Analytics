@@ -36,6 +36,5 @@ source venv/bin/activate
 
 ### How to Run
 1. Install requirements: `pip install -r requirements.txt`
-2. Run Scraper: `python src/scrape_reviews.py`
-3. Run Cleaner: `python src/preprocess_reviews.py`
+2. Run main.py: `python main.py`
 4. Output file: `banking_reviews_cleaned.csv`
