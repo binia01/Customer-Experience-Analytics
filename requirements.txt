@@ -5,5 +5,9 @@ python-dateutil
 pytz
 six
 tzdata
+transformers
+torch
+scikit-learn
+tqdm
 matplotlib
 seaborn
