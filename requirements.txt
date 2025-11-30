@@ -5,3 +5,5 @@ python-dateutil
 pytz
 six
 tzdata
+matplotlib
+seaborn
