@@ -11,3 +11,5 @@ scikit-learn
 tqdm
 matplotlib
 seaborn
+psycopg2-binary 
+python-dotenv
