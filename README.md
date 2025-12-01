@@ -37,4 +37,4 @@ source venv/bin/activate
 ### How to Run
 1. Install requirements: `pip install -r requirements.txt`
 2. Run main.py: `python main.py`
-4. Output file: `banking_reviews_cleaned.csv`
+4. Output file: `reviews_analyzed.csv`
