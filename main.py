@@ -2,11 +2,12 @@ import pandas as pd
 import sys
 import logging
 from src.config import PATHS
-from src.scraper_reviews import PlayStoreScraper
-from src.preprocess_reviews import DataCleaner
-from src.sentiment_analyzer import SentimentAnalyzer
-from src.theme_analyzer import ThemeClassifier
-from src.keyword_analyzer import KeywordExtractor
+from src.data.scraper_reviews import PlayStoreScraper
+from src.data.preprocess_reviews import DataCleaner
+from src.analysis.sentiment_analyzer import SentimentAnalyzer
+from src.analysis.theme_analyzer import ThemeClassifier
+from src.analysis.keyword_analyzer import KeywordExtractor
+from src.database.db_loader import DatabaseLoader
 
 # Setup Global Logging
 logging.basicConfig(
@@ -54,6 +55,28 @@ def main():
     # --- Step 6: Final Save ---
     final_df.to_csv(PATHS['final_data'], index=False)
     print(f"\nPipeline Complete! Final dataset ready at: {PATHS['final_data']}")
+
+    # --- Step 7: Database Storage (Task 3) ---
+    logger.info("Starting Database Ingestion...")
+    
+    try:
+        db = DatabaseLoader()
+        
+        # Create Schema (Tables)
+        db.create_schema()
+        
+        # Populate Banks Table
+        db.populate_banks()
+        
+        # Load Reviews
+        db.load_reviews(PATHS['final_data'])
+        
+        db.close()
+        logger.info("Database Sync Complete.")
+        
+    except Exception as db_err:
+        logger.error(f"Database Error: {db_err}")
+        logger.warning("Pipeline continued, but data was NOT saved to DB.")
 
 if __name__ == "__main__":
     main()
